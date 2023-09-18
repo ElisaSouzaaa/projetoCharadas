@@ -1,6 +1,10 @@
 package charadas;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+
 import charadas.util.Cores;
 
 public class Funcionalidade extends Menu implements FaseUm, FaseDois, FaseFinal{
@@ -143,6 +147,9 @@ public class Funcionalidade extends Menu implements FaseUm, FaseDois, FaseFinal{
 			respostaFinal.add(leia.nextLine().toUpperCase());
 			System.out.println(Cores.TEXT_YELLOW + "Terceira letra da resposta (Pressione ENTER após digitar sua resposta:" + Cores.TEXT_RESET);
 			respostaFinal.add(leia.nextLine().toUpperCase());
+			
+			List<String> respostaFinalDesc = respostaFinal.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+			System.out.println(Cores.TEXT_YELLOW + "\nResposta digitada exibida em ordem Decrescente: " + respostaFinalDesc + Cores.TEXT_RESET);
 		}
 		
 		if(respostaFinal.contains("O") && respostaFinal.contains("N") && respostaFinal.contains("D")) {
@@ -173,13 +180,16 @@ public class Funcionalidade extends Menu implements FaseUm, FaseDois, FaseFinal{
 		
 		switch(respost) {
 		case "sim":
-			System.out.println(Cores.TEXT_YELLOW + "Que bom que você gostou!" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_YELLOW + "\nQue bom que você gostou!" + Cores.TEXT_RESET);
 			break;
 		case "não":
-			System.out.println(Cores.TEXT_YELLOW + "Oh? Vou tentar melhorar no futuro, obrigada por dizer!" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_YELLOW + "\nOh? Vou tentar melhorar no futuro, obrigada por dizer!" + Cores.TEXT_RESET);
+			break;
+		case "nao":
+			System.out.println(Cores.TEXT_YELLOW + "\nOh? Vou tentar melhorar no futuro, obrigada por dizer!" + Cores.TEXT_RESET);
 			break;
 		default:
-			System.out.println(Cores.TEXT_YELLOW + "Opa! Resposta inválida!" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_YELLOW + "\nOpa! Resposta inválida!" + Cores.TEXT_RESET);
 			System.exit(0);
 		}
 	}
