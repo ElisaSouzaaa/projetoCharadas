@@ -20,19 +20,19 @@ public class Funcionalidade extends Menu implements FaseUm, FaseDois, FaseFinal{
 		System.out.println("Esse é um pequeno jogo de charadas");
 		System.out.println("Bem-vindo ao jogo " + getNome() + "!");
 		System.out.println("Deseja participar?");
-		System.out.println("1 - SIM!  0 - NÃO!");
+		System.out.println("\n1 - SIM!  0 - NÃO!");
 		System.out.println("\n**************************************************************\n" + Cores.TEXT_RESET);
 	}
 		
 		public void menuIniciar2() {
 			System.out.println(Cores.TEXT_YELLOW + "Você aceita esse desafio?");
-			System.out.println("1- SIM!\n0- NÃO!");
+			System.out.println("\n1- SIM!\n0- NÃO!");
 			System.out.println("\n**************************************************************\n" + Cores.TEXT_RESET);
 	}
 		
 		public void menuIniciar3() {
 			System.out.println(Cores.TEXT_YELLOW + "Você se sente capaz??");
-			System.out.println("1- SIM!\n0- NÃO!");
+			System.out.println("\n1- SIM!\n0- NÃO!");
 			System.out.println("\n**************************************************************\n" + Cores.TEXT_RESET);
 	}
 
@@ -60,7 +60,7 @@ public class Funcionalidade extends Menu implements FaseUm, FaseDois, FaseFinal{
 		System.out.println(Cores.TEXT_YELLOW + "\n**************************************************************");
 		System.out.println("Como esperado da sua inteligência, eu sabia que você estava confiante!");
 		System.out.println("Diferente das fases anteriores, agora você está por conta própria!");
-		System.out.println("Mas ATENÇÃO: Preste atenção no que você digita! Se errar, terá que recomeçar da fase um!\nPronto?");
+		System.out.println("Mas ATENÇÃO: Preste atenção no que você digita! Se errar, terá que recomeçar da fase um!\nPronto?\n\n1- SIM\n0- NÃO");
 		System.out.println("**************************************************************" + Cores.TEXT_RESET);
 	}
 	
@@ -158,10 +158,6 @@ public class Funcionalidade extends Menu implements FaseUm, FaseDois, FaseFinal{
 			System.out.println(Cores.TEXT_YELLOW + "\nVocê errou... e como toda fase difícil aqui vai a segunda parte do desafio:" + Cores.TEXT_RESET);
 			System.out.println(Cores.TEXT_YELLOW + "Terá que começar tudo novamente. Eu sei que você consegue, não desista!" + Cores.TEXT_RESET);
 		}
-		
-		if(respostaFinal.contains("sair")) {
-			System.out.println(Cores.TEXT_YELLOW + "Poxa, você chegou tão longe... mas ok!" + Cores.TEXT_RESET);
-		}
 	}
 
 	@Override
@@ -207,7 +203,7 @@ public class Funcionalidade extends Menu implements FaseUm, FaseDois, FaseFinal{
 			System.out.println(Cores.TEXT_YELLOW + "\nUau! Você gostou mesmo? Eu fico muito feliz, obrigada!" + Cores.TEXT_RESET);
 			System.out.println(Cores.TEXT_YELLOW + "Obrigada por jogar comigo! Até a próxima =)");
 		}else if (resposta > 10) {
-			System.out.println(Cores.TEXT_YELLOW + "Esse número é bem grandão! Gostou tanto assim? Obrigada de verdade!" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_YELLOW + "\nEsse número é bem grandão! Gostou tanto assim? Obrigada de verdade!" + Cores.TEXT_RESET);
 			System.out.println(Cores.TEXT_YELLOW + "Obrigada por jogar comigo! Até a próxima =)");
 		}else if(resposta < 0) {
 			System.out.println(Cores.TEXT_YELLOW + "\nWah! Tão ruim assim? Ok, preciso correr atrás e melhorar bastantão!" + Cores.TEXT_RESET);

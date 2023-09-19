@@ -11,14 +11,14 @@ public class ProjetoCharada {
 		int resposta = 0;
 		
 		System.out.println(Cores.TEXT_YELLOW + "Qual o seu nome?\n" + Cores.TEXT_RESET);
-		usuario.setNome(leia.nextLine().trim());
+		usuario.setNome(leia.nextLine().trim().toUpperCase());
 		
-		if(usuario.checkLetters(usuario.getNome())) {
-			System.out.println(Cores.TEXT_YELLOW + "\nMuito prazer em te conhecer!" + Cores.TEXT_RESET);
-		}else {
-			System.out.println(Cores.TEXT_YELLOW + "\nOpa, tenho certeza que esse não é o seu nome!" + Cores.TEXT_RESET);
-			System.exit(0);
-		}
+        if (usuario.getNome().matches("^[\\p{L} ]{3,}$")) {
+            System.out.println("\nOlá! " + usuario.getNome());
+        } else {
+            System.out.println("\nOpa, algo não tá legal...\nDigite um nome válido com pelo menos 3 letras e apenas letras e espaços.");
+            System.exit(0);
+        }
 
 		try{
 			usuario.menuIniciar();
@@ -78,7 +78,12 @@ public class ProjetoCharada {
 			if(resposta == 1) {
 				try {
 					usuario.menuInstrucao3();
-					usuario.faseFinal();
+					resposta = leia.nextInt();
+					if(resposta == 1) {
+						usuario.faseFinal();
+					}else if(resposta == 0) {
+							System.out.println(Cores.TEXT_YELLOW + "\nPoxa, você chegou tão longe... mas ok!" + Cores.TEXT_RESET);
+					}
 				}catch(InputMismatchException e) {
 					System.out.println(Cores.TEXT_YELLOW + "\nAh não, não foi isso que eu pedi. \nVocê respondeu com letras e por isso deu erro! \nLembre-se: Digite apenas os números das opções!" + Cores.TEXT_RESET);
 				}	
