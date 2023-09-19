@@ -216,8 +216,4 @@ public class Funcionalidade extends Menu implements FaseUm, FaseDois, FaseFinal{
 			System.out.println(Cores.TEXT_YELLOW + "Obrigada por jogar comigo! Até a próxima =)" + Cores.TEXT_RESET);
 		}
 	}
-
-	public boolean checkLetters(String nome) {
-		return nome.matches("[a-zA-Z]+");
-	}
 }
