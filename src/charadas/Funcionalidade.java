@@ -1,6 +1,7 @@
 package charadas;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -191,10 +192,15 @@ public class Funcionalidade extends Menu implements FaseUm, FaseDois, FaseFinal{
 	}
 	
 	public void enquete(int numero) {
-		@SuppressWarnings("resource")
+		try {
+			@SuppressWarnings("resource")
 		Scanner leia = new Scanner(System.in);
 		System.out.println(Cores.TEXT_YELLOW + "\nDe 0 a 10 o quão legal você achou o jogo?" + Cores.TEXT_RESET);
 		resposta = leia.nextInt();
+		}catch(InputMismatchException e) {
+			System.out.println(Cores.TEXT_YELLOW + "\nAh não, não foi isso que eu pedi. \nVocê respondeu com letras e por isso deu erro! \nLembre-se: Digite apenas o que for pedido!" + Cores.TEXT_RESET);
+			System.exit(0);
+		}
 		
 		if(resposta >= 0 && resposta < 5) {
 			System.out.println(Cores.TEXT_YELLOW + "\nNão foi tão legal, né? Mas pode deixar que vou melhorar!" + Cores.TEXT_RESET);
